@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- CONTOH PERTAMA PEMBUATAN FETCH API -->
+    <script>
+        //fetch API adalah cara untuk apply atau send API dengan javascript selain menggunakan ajax.
+        //dan result value dari fetch API adalah statement promise. 
+        //untuk membuat fetch API cukup menggunakan method fetch() dengan parameter object new Request(), seperti contoh di bawah.
+        const request = new Request("server-api/products.json", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+            //body digunakan apabila client ingin mengirim data ke server.
+            // body: JSON.stringify(
+            //     {
+            //         "name": "mie sedaap rumput laut",
+            //         "price": 20000
+            //     }
+            // )
+        });
+        const getApi = fetch(request);//contoh cara pembuatan fetch api.
+        getApi
+            .then((value) => value.json)
+    </script>
+
+    <!-- CONTOH KEDUA PEMBUATAN FETCH API -->
+    <script>
+        const getApi2 = fetch("server-api/products.json", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+            //body digunakan apabila client ingin mengirim data ke server.
+            // body: JSON.stringify(
+            //     {
+            //         "name": "mie sedaap rumput laut",
+            //         "price": 20000
+            //     }
+            // )
+        });
+        getApi2
+            .then((value) => value.json)
+
+    </script>
+</body>
+</html>

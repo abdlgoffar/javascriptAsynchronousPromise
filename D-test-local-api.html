@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //request without authentication example
+        // async function api() {
+        //     let httpHeaders = new Headers();
+        //     httpHeaders.append('Authorization','Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2ZmYXJAZ21haWwuY29tIiwiaWF0IjoxNjc4ODQ4NTg1LCJleHAiOjE2Nzg4NTAzODV9.FRL22fUuhIFM1YWehluFrRLitKR4Fm0uvdafNd38OUA')
+
+            
+        //     let request = fetch("http://localhost:5050/categories", {
+        //     method: "GET", 
+            
+        //     //mode: "no-cors", // no-cors, *cors, same-origin
+        //     headers: httpHeaders
+        //     });
+
+        //     let response = await request
+        //         .then((promise) => promise.json());
+        
+        //     return response;
+        // }
+            
+
+        // api()
+        //     .then((result) => console.log(result));
+
+        //request with authentiation example
+        // async function api() {
+        // let request = fetch("http://localhost:5050/categories", {
+        // method: "GET", 
+        // headers: {
+        //     "Content-Type": "application/json",
+        //     "Accept": "application/json"
+        // }
+        // });
+
+        // let response = await request
+        //     .then((promise) => promise.json())
+    
+        // return response;
+        // }
+        // api()
+        //     .then((result) => console.log(result));
+
+            
+        const headers = { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2ZmYXJAZ21haWwuY29tIiwiaWF0IjoxNjc4ODU1MTMwLCJleHAiOjE2Nzg4NTY5MzB9.Q46zLBT_YyYNMGBTfMvSiiOpG26ztM8DJyZPPlR1qGQ' }; // auth header with bearer token
+        fetch('http://localhost:6060/categories', { method: "GET"})
+            .then(response => response.json())
+            .then(data =>  console.log(data));
+    </script>
+</body>
+</html>

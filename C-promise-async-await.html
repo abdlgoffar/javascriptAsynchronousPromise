@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //keyword async await  digunakan untuk mendapatkan result value dari statement promise.
+        //jadi agar bisa mendapatkan value dari promise maka dibutuhkan keyword await dan method nya harus diberi keyword async agar menandakan bahwa data yg di proses adalaha data statement promise.
+       
+        function api() {
+            return fetch("server-api/products.json", {
+                method: "GET"
+            });
+        }
+        //contoh cara penerapan promise async await keyword
+        async function get() {
+            try {
+                const data = await api().then((response) => response.json());
+                return data;
+            } catch (e) {
+                return "Product Not Found";
+            } finally {
+                
+            }
+        }
+     
+        get()
+            .then((data) => console.info(data));
+    </script>
+</body>
+</html>
